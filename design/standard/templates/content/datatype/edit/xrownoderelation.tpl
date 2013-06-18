@@ -17,7 +17,7 @@
 </thead>
 <tbody>
 <tr class="bglight">
-{if $my_node.hidden_status_string|contains('Sichtbar')}
+{*if $my_node.hidden_status_string|contains('Sichtbar')*}
     {* Name *}
     <td>{$my_node.name|wash()}</td>
 
@@ -34,12 +34,12 @@
             {'Yes'|i18n( 'design/standard/content/datatype' )}
         {/if}
     </td>
-{else}
+{*else}
     <td>--name--</td>
     <td>--class-name--</td>
     <td>--section-name--</td>
     <td>--published--</td>
-{/if}
+{/if*}
 </tr>
 </tbody>
 </table>
