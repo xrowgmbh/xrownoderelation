@@ -2,7 +2,7 @@
 
 /*!
   \class xrowNodeRelationType xrownoderelation.php
-  \ingroup Node Verknüpfung
+  \ingroup Node VerknÃ¼pfung
 */
 
 class xrowNodeRelationType extends eZDataType
@@ -159,7 +159,11 @@ class xrowNodeRelationType extends eZDataType
              eZContentObject::fetch( $contentObjectID )->removeContentObjectRelation( false, $contentObjectVersion, $contentClassAttributeID, eZContentObject::RELATION_ATTRIBUTE );
         }
 
-        $objectID = $contentObjectAttribute->attribute( "data_int" );
+        if( $contentObjectAttribute->attribute( "data_int" ) )
+        {
+                $connected_object = eZContentObject::fetchByNodeID( $contentObjectAttribute->attribute( "data_int" ) );
+                $objectID = $connected_object->ID;
+        }
 
         if ( $objectID )
         {
